@@ -1,0 +1,24 @@
+{
+  "name": "vite-userscript-template",
+  "private": true,
+  "homepage": "https://crashmax-dev.github.io/vite-userscript-template/",
+  "version": "0.0.1",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite build --watch --mode development",
+    "build": "vite build",
+    "format": "prettier --write --ignore-unknown src"
+  },
+  "devDependencies": {
+    "@crashmax/prettier-config": "^2.1.0",
+    "@crashmax/tsconfig": "^1.0.2",
+    "sass": "^1.56.1",
+    "typescript": "^4.8.4",
+    "vite": "^3.2.3",
+    "vite-userscript-plugin": "^1.6.4"
+  },
+  "dependencies": {
+    "redom": "^3.29.1"
+  }
+}
