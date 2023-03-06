@@ -11,15 +11,15 @@
     "format": "prettier --write --ignore-unknown src"
   },
   "devDependencies": {
-    "@crashmax/prettier-config": "^3.2.1",
-    "@crashmax/tsconfig": "^2.0.1",
-    "sass": "^1.58.3",
-    "typescript": "^4.9.5",
-    "vite": "^4.1.4",
-    "vite-userscript-plugin": "^1.6.6"
+    "@crashmax/prettier-config": "3.2.1",
+    "@crashmax/tsconfig": "2.0.1",
+    "sass": "1.58.3",
+    "typescript": "4.9.5",
+    "vite": "4.1.4",
+    "vite-userscript-plugin": "1.6.6"
   },
   "dependencies": {
-    "@zero-dependency/storage": "^0.3.0",
-    "redom": "^3.29.1"
+    "@zero-dependency/dom": "0.12.0",
+    "@zero-dependency/storage": "0.3.0"
   }
 }

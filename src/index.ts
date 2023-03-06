@@ -1,5 +1,6 @@
 import './style.scss'
-import { podcastPlayer } from './player.js'
+import { patchPlayer } from './player.js'
+import { patchPodcasts } from './podcast'
 
 const banner = document.querySelector('.page__war')
 if (banner) {
@@ -8,5 +9,12 @@ if (banner) {
 
 const player = document.querySelector<HTMLAudioElement>('.podcast__player')
 if (player) {
-  podcastPlayer(player)
+  patchPlayer(player)
+}
+
+const podcasts = document.querySelectorAll<HTMLElement>(
+  '.podcast-preview__number'
+)
+if (podcasts.length) {
+  patchPodcasts(podcasts)
 }

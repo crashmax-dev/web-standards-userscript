@@ -1,21 +1,25 @@
-import { addPodcast, getPodcast, updatePodcast } from './storage.js'
+import {
+  addPlayerOptions,
+  getPlayerOptions,
+  updatePlayerOptions
+} from './storage.js'
 
-export function podcastPlayer(player: HTMLAudioElement): void {
+export function patchPlayer(player: HTMLAudioElement): void {
   const podcastId = location.pathname.split('/').filter(Boolean).pop()
   if (!podcastId) return
 
   const defaultOptions = { id: podcastId, time: 0, volume: 0.1 }
-  const playerOptions = getPodcast(podcastId)
+  const playerOptions = getPlayerOptions(podcastId)
   if (!playerOptions) {
-    addPodcast(defaultOptions)
+    addPlayerOptions(defaultOptions)
   }
 
   player.addEventListener('timeupdate', () => {
-    updatePodcast(podcastId, { time: player.currentTime })
+    updatePlayerOptions(podcastId, { time: player.currentTime })
   })
 
   player.addEventListener('volumechange', () => {
-    updatePodcast(podcastId, { volume: player.volume })
+    updatePlayerOptions(podcastId, { volume: player.volume })
   })
 
   player.currentTime = playerOptions?.time ?? defaultOptions.time

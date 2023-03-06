@@ -1,18 +1,18 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@crashmax/prettier-config': ^3.2.1
-  '@crashmax/tsconfig': ^2.0.1
-  '@zero-dependency/storage': ^0.3.0
-  redom: ^3.29.1
-  sass: ^1.58.3
-  typescript: ^4.9.5
-  vite: ^4.1.4
-  vite-userscript-plugin: ^1.6.6
+  '@crashmax/prettier-config': 3.2.1
+  '@crashmax/tsconfig': 2.0.1
+  '@zero-dependency/dom': 0.12.0
+  '@zero-dependency/storage': 0.3.0
+  sass: 1.58.3
+  typescript: 4.9.5
+  vite: 4.1.4
+  vite-userscript-plugin: 1.6.6
 
 dependencies:
+  '@zero-dependency/dom': 0.12.0
   '@zero-dependency/storage': 0.3.0
-  redom: 3.29.1
 
 devDependencies:
   '@crashmax/prettier-config': 3.2.1_za6dmrbiogn3z6m2plsv3qsi6m
@@ -508,6 +508,16 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.14
     dev: true
 
+  /@zero-dependency/dom/0.12.0:
+    resolution: {integrity: sha512-afswu8W+/+ELG+YHii6M475Cbkn4bmsWrdHZcU+8EibOzQSx8xk6nWco0vV2F0iTcEFsaa1QBn9NTS4K6i4Y1g==}
+    dependencies:
+      '@zero-dependency/emitter': 1.1.1
+    dev: false
+
+  /@zero-dependency/emitter/1.1.1:
+    resolution: {integrity: sha512-bPF9QeEQdOhe1Bfpm+mqOS4JrajPiHTj5vMvOSMvZp5jZzzgd8lC87JL93xWGgL8Qb3E98JZkmnYJX3JdmrEIA==}
+    dev: false
+
   /@zero-dependency/storage/0.3.0:
     resolution: {integrity: sha512-tgqExPBuYR4etO+XN38+jH6TG0pxMxOYWtS+U50l2emFb4gn+MhqUQ7TpNxUIPmq/S9GWNyoqUYG9IXTnCfCBw==}
     dev: false
@@ -995,10 +1005,6 @@ packages:
     dependencies:
       picomatch: 2.3.1
     dev: true
-
-  /redom/3.29.1:
-    resolution: {integrity: sha512-hEQEcPGRj4W2UT4IIBsNw29zMNV6vtXQ8ttitQ+Uc5XpdQ7i8d5VgKfm6fPmYbbApKXa98dUoEzDgk1oqXVlMg==}
-    dev: false
 
   /resolve/1.22.1:
     resolution: {integrity: sha512-nBpuuYuY5jFsli/JIs1oldw6fOQCBioohqWZg/2hiaOybXOft4lonv85uDOKXdf8rhyK159cxU5cDcK/NKk8zw==}

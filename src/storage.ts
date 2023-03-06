@@ -1,20 +1,20 @@
 import { LocalStorage } from '@zero-dependency/storage'
 
-interface PodcastOptions {
+interface PlayerOptions {
   id: string
   time: number
   volume: number
 }
 
-export const storage = new LocalStorage<PodcastOptions[]>('podcast-options', [])
+export const storage = new LocalStorage<PlayerOptions[]>('podcast-options', [])
 
-export function getPodcast(podcastId: string): PodcastOptions | undefined {
+export function getPlayerOptions(podcastId: string): PlayerOptions | undefined {
   return storage.values.find((podcast) => podcast.id === podcastId)
 }
 
-export function updatePodcast(
+export function updatePlayerOptions(
   podcastId: string,
-  options: Partial<PodcastOptions>
+  options: Partial<PlayerOptions>
 ): void {
   storage.write((values) => {
     const podcastIndex = values.findIndex((podcast) => podcast.id === podcastId)
@@ -26,7 +26,7 @@ export function updatePodcast(
   })
 }
 
-export function addPodcast(options: PodcastOptions): void {
+export function addPlayerOptions(options: PlayerOptions): void {
   storage.write((values) => {
     values.push(options)
     return values
