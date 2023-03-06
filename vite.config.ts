@@ -12,7 +12,8 @@ export default defineConfig((config) => {
           version,
           license,
           homepage,
-          match: 'https://example.com'
+          icon: 'https://www.google.com/s2/favicons?sz=64&domain=web-standards.ru',
+          match: 'https://web-standards.ru/*'
         },
         server: {
           port: 3000

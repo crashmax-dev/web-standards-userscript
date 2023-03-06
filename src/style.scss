@@ -1,12 +1,11 @@
-.card {
-  color: #fff;
-  background-color: #333;
+body {
+  filter: invert(1);
+}
 
-  .title {
-    text-decoration: underline;
-  }
+.header {
+  background-color: #fff;
+}
 
-  a {
-    color: #637fff;
-  }
+.podcast__player {
+  filter: initial;
 }
