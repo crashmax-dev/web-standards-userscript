@@ -1,4 +1,4 @@
-# vite-userscript-template
+# web-standards-userscript
 
 > Userscript that enhances the [web-standards.ru](https://web-standards.ru)
 
@@ -9,4 +9,4 @@
 - Allow Tampermonkey's access to [local file URI's](https://tampermonkey.net/faq.php?ext=dhdg#Q204)
 - Install dependencies with `pnpm i`
 - `pnpm dev` to start your development
-- Install proxy script from `dist/vite-userscript-template.proxy.user.js` or `http://localhost:3000`
+- Install proxy script from `dist/web-standards-userscript.proxy.user.js` or `http://localhost:3000`
