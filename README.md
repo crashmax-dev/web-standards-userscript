@@ -1,18 +1,12 @@
-# web-standards-userscript
+# vite-userscript-template
 
-> This template is based on [Vite](https://vitejs.dev) and [vite-userscript-plugin](https://github.com/crashmax-dev/vite-userscript-plugin)
+> Userscript that enhances the [web-standards.ru](https://web-standards.ru)
 
-## Branches
-
-- [master (redom)](https://github.com/crashmax-dev/web-standards-userscript)
-- [jsx (redom-jsx)](https://github.com/crashmax-dev/web-standards-userscript/tree/jsx)
-- [reatom (redom-jsx + reatom v2)](https://github.com/crashmax-dev/web-standards-userscript/tree/reatom)
-- [imba](https://github.com/crashmax-dev/web-standards-userscript/tree/imba)
-- [preact](https://github.com/crashmax-dev/web-standards-userscript/tree/preact)
+[Install](https://crashmax-dev.github.io/web-standards-userscript/web-standards-userscript.user.js)
 
 ## Development
 
 - Allow Tampermonkey's access to [local file URI's](https://tampermonkey.net/faq.php?ext=dhdg#Q204)
 - Install dependencies with `pnpm i`
 - `pnpm dev` to start your development
-- Install proxy script from `dist/web-standards-userscript.proxy.user.js` or `http://localhost:3000`
+- Install proxy script from `dist/vite-userscript-template.proxy.user.js` or `http://localhost:3000`
