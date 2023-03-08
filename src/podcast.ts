@@ -2,9 +2,9 @@ import { el } from '@zero-dependency/dom'
 import { storage } from './storage.js'
 import { zeroPad } from './utils.js'
 
-export function patchPodcasts(podcastsElements: NodeListOf<HTMLElement>): void {
+export function patchPodcasts(podcastsElements: HTMLElement[]): void {
   for (const podcast of storage.values) {
-    const podcastElement = Object.values(podcastsElements).find(
+    const podcastElement = podcastsElements.find(
       (el) => el.textContent?.trim() === podcast.id
     )
     if (!podcastElement) continue

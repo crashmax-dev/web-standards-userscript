@@ -12,9 +12,9 @@ if (player) {
   patchPlayer(player)
 }
 
-const podcasts = document.querySelectorAll<HTMLElement>(
-  '.podcast-preview__number'
-)
+const podcasts = [
+  ...document.querySelectorAll<HTMLElement>('.podcast-preview__number')
+]
 if (podcasts.length) {
   patchPodcasts(podcasts)
 }
