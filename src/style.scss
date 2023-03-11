@@ -1,4 +1,9 @@
-body {
+body,
+.article-card__photo,
+.links__icon,
+.blob__photo,
+.colors,
+img {
   filter: invert(1);
 }
 
