@@ -1,6 +1,6 @@
 import { el } from '@zero-dependency/dom'
+import { pad } from '@zero-dependency/utils'
 import { storage } from './storage.js'
-import { zeroPad } from './utils.js'
 
 export function patchPodcasts(podcastsElements: HTMLElement[]): void {
   for (const podcast of storage.values) {
@@ -13,9 +13,7 @@ export function patchPodcasts(podcastsElements: HTMLElement[]): void {
     const hours = Math.floor(time / 3600)
     const minutes = Math.floor((time - hours * 3600) / 60)
     const seconds = Math.floor(time - hours * 3600 - minutes * 60)
-    const timeString = `/ ${zeroPad(hours)}:${zeroPad(minutes)}:${zeroPad(
-      seconds
-    )}`
+    const timeString = `/ ${pad(hours)}:${pad(minutes)}:${pad(seconds)}`
 
     const timeElement = el('span', timeString)
     podcastElement.appendChild(timeElement)

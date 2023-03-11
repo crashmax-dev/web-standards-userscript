@@ -5,6 +5,7 @@ specifiers:
   '@crashmax/tsconfig': 2.0.1
   '@zero-dependency/dom': 0.12.0
   '@zero-dependency/storage': 0.3.0
+  '@zero-dependency/utils': ^0.2.3
   sass: 1.58.3
   typescript: 4.9.5
   vite: 4.1.4
@@ -13,6 +14,7 @@ specifiers:
 dependencies:
   '@zero-dependency/dom': 0.12.0
   '@zero-dependency/storage': 0.3.0
+  '@zero-dependency/utils': 0.2.3
 
 devDependencies:
   '@crashmax/prettier-config': 3.2.1_za6dmrbiogn3z6m2plsv3qsi6m
@@ -520,6 +522,10 @@ packages:
 
   /@zero-dependency/storage/0.3.0:
     resolution: {integrity: sha512-tgqExPBuYR4etO+XN38+jH6TG0pxMxOYWtS+U50l2emFb4gn+MhqUQ7TpNxUIPmq/S9GWNyoqUYG9IXTnCfCBw==}
+    dev: false
+
+  /@zero-dependency/utils/0.2.3:
+    resolution: {integrity: sha512-UlByCc1ST+bvX8lymF1QrOcnZUWKbXjp964TfXUDOv8EWSO6y0KpZEkGm+8/21ux0Bgr73xg+4VlqBiMBdom7g==}
     dev: false
 
   /ansi-styles/3.2.1:
