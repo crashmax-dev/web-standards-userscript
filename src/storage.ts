@@ -9,7 +9,7 @@ interface PlayerOptions {
 export const storage = new LocalStorage<PlayerOptions[]>('podcast-options', [])
 
 export function getPlayerOptions(podcastId: string): PlayerOptions | undefined {
-  return storage.values.find((podcast) => podcast.id === podcastId)
+  return storage.value.find((podcast) => podcast.id === podcastId)
 }
 
 export function updatePlayerOptions(

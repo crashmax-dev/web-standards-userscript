@@ -1,3 +1,4 @@
+import { el } from '@zero-dependency/dom'
 import {
   addPlayerOptions,
   getPlayerOptions,
@@ -5,6 +6,41 @@ import {
 } from './storage.js'
 
 export function patchPlayer(player: HTMLAudioElement): void {
+  const clonedPlayer = player.cloneNode() as HTMLAudioElement
+  const playerContainer = el('div', {
+    className: 'player__container'
+  })
+
+  const playerPlaybackRateInput = el('input', {
+    name: 'player__playbackrate',
+    type: 'range',
+    value: `${clonedPlayer.playbackRate}`,
+    step: '0.25',
+    min: '0.75',
+    max: '2',
+    oninput: () => {
+      const playbackRate = parseFloat(playerPlaybackRateInput.value)
+      clonedPlayer.playbackRate = playbackRate
+      playerPlaybackRateLabel.textContent = `${clonedPlayer.playbackRate}`
+    }
+  })
+
+  const playerPlaybackRateLabel = el(
+    'label',
+    {
+      className: 'player__playbackrate-label',
+      htmlFor: 'player__playbackrate'
+    },
+    `${clonedPlayer.playbackRate}`
+  )
+
+  playerContainer.append(
+    clonedPlayer,
+    playerPlaybackRateInput,
+    playerPlaybackRateLabel
+  )
+  player.replaceWith(playerContainer)
+
   const podcastId = location.pathname.split('/').filter(Boolean).pop()
   if (!podcastId) return
 
@@ -14,14 +50,14 @@ export function patchPlayer(player: HTMLAudioElement): void {
     addPlayerOptions(defaultOptions)
   }
 
-  player.addEventListener('timeupdate', () => {
-    updatePlayerOptions(podcastId, { time: player.currentTime })
+  clonedPlayer.addEventListener('timeupdate', () => {
+    updatePlayerOptions(podcastId, { time: clonedPlayer.currentTime })
   })
 
-  player.addEventListener('volumechange', () => {
-    updatePlayerOptions(podcastId, { volume: player.volume })
+  clonedPlayer.addEventListener('volumechange', () => {
+    updatePlayerOptions(podcastId, { volume: clonedPlayer.volume })
   })
 
-  player.currentTime = playerOptions?.time ?? defaultOptions.time
-  player.volume = playerOptions?.volume ?? defaultOptions.volume
+  clonedPlayer.currentTime = playerOptions?.time ?? defaultOptions.time
+  clonedPlayer.volume = playerOptions?.volume ?? defaultOptions.volume
 }

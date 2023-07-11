@@ -18,3 +18,14 @@ img {
 .podcast-preview__number.visited {
   color: #b8860b;
 }
+
+.player__container {
+  grid-column: 1/-1;
+  display: flex;
+}
+
+.player__playbackrate-label {
+  align-self: center;
+  margin-left: 4px;
+  width: 3rem;
+}

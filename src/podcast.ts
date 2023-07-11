@@ -1,9 +1,9 @@
 import { el } from '@zero-dependency/dom'
-import { pad } from '@zero-dependency/utils'
+import { addZero } from '@zero-dependency/utils'
 import { storage } from './storage.js'
 
 export function patchPodcasts(podcastsElements: HTMLElement[]): void {
-  for (const podcast of storage.values) {
+  for (const podcast of storage.value) {
     const podcastElement = podcastsElements.find(
       (el) => el.textContent?.trim() === podcast.id
     )
@@ -13,7 +13,9 @@ export function patchPodcasts(podcastsElements: HTMLElement[]): void {
     const hours = Math.floor(time / 3600)
     const minutes = Math.floor((time - hours * 3600) / 60)
     const seconds = Math.floor(time - hours * 3600 - minutes * 60)
-    const timeString = `/ ${pad(hours)}:${pad(minutes)}:${pad(seconds)}`
+    const timeString = `/ ${addZero(hours)}:${addZero(minutes)}:${addZero(
+      seconds
+    )}`
 
     const timeElement = el('span', timeString)
     podcastElement.appendChild(timeElement)
