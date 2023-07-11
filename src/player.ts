@@ -21,7 +21,7 @@ export function patchPlayer(player: HTMLAudioElement): void {
     oninput: () => {
       const playbackRate = parseFloat(playerPlaybackRateInput.value)
       clonedPlayer.playbackRate = playbackRate
-      playerPlaybackRateLabel.textContent = `${clonedPlayer.playbackRate}`
+      playerPlaybackRateLabel.textContent = `${clonedPlayer.playbackRate}x`
     }
   })
 
@@ -31,7 +31,7 @@ export function patchPlayer(player: HTMLAudioElement): void {
       className: 'player__playbackrate-label',
       htmlFor: 'player__playbackrate'
     },
-    `${clonedPlayer.playbackRate}`
+    `${clonedPlayer.playbackRate}x`
   )
 
   playerContainer.append(
