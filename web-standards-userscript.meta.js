@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name        web-standards-userscript
-// @version     0.2.0
+// @version     0.2.1
 // @license     MIT
 // @homepage    https://crashmax-dev.github.io/web-standards-userscript/
 // @icon        https://www.google.com/s2/favicons?sz=64&domain=web-standards.ru
