@@ -1,9 +1,10 @@
 import { LocalStorage } from '@zero-dependency/storage'
 
-interface PlayerOptions {
+export interface PlayerOptions {
   id: string
   time: number
   volume: number
+  rate: number
 }
 
 export const storage = new LocalStorage<PlayerOptions[]>('podcast-options', [])

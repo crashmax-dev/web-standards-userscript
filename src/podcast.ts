@@ -2,6 +2,10 @@ import { el } from '@zero-dependency/dom'
 import { addZero } from '@zero-dependency/utils'
 import { storage } from './storage.js'
 
+export function getPodcastId(): string | undefined {
+  return location.pathname.split('/').filter(Boolean).pop()
+}
+
 export function patchPodcasts(podcastsElements: HTMLElement[]): void {
   for (const podcast of storage.value) {
     const podcastElement = podcastsElements.find(
