@@ -1,4 +1,4 @@
-body,
+html,
 .article-card__photo,
 .links__icon,
 .blob__photo,
@@ -22,10 +22,4 @@ img {
 .player__container {
   grid-column: 1/-1;
   display: flex;
-}
-
-.player__playbackrate-label {
-  align-self: center;
-  margin-left: 4px;
-  width: 4rem;
 }

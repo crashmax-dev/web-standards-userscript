@@ -1,4 +1,5 @@
 import { el } from '@zero-dependency/dom'
+
 import { getPodcastId } from './podcast.js'
 import {
   addPlayerOptions,
@@ -7,40 +8,39 @@ import {
   updatePlayerOptions
 } from './storage.js'
 
-export function patchPlayer(targetPlayer: HTMLAudioElement): void {
+export function patchPlayer(playerContainer: HTMLDivElement): void {
   const podcastId = getPodcastId()
   if (!podcastId) return
 
-  const player = targetPlayer.cloneNode() as HTMLAudioElement
+  const audioPlayer = playerContainer.querySelector('audio')
+  if (!audioPlayer) return
+
   const initialPlayerOptions: PlayerOptions = {
     id: podcastId,
     time: 0,
     volume: 0.1,
-    rate: player.playbackRate
+    rate: audioPlayer.playbackRate
   }
+
   const playerOptions = getPlayerOptions(podcastId)
   if (!playerOptions) {
     addPlayerOptions(initialPlayerOptions)
   }
 
-  player.currentTime = playerOptions?.time ?? initialPlayerOptions.time
-  player.volume = playerOptions?.volume ?? initialPlayerOptions.volume
-  player.playbackRate = playerOptions?.rate ?? initialPlayerOptions.rate
-
-  const playerContainer = el('div', {
-    className: 'player__container'
-  })
+  audioPlayer.currentTime = playerOptions?.time ?? initialPlayerOptions.time
+  audioPlayer.volume = playerOptions?.volume ?? initialPlayerOptions.volume
+  audioPlayer.playbackRate = playerOptions?.rate ?? initialPlayerOptions.rate
 
   const playerPlaybackRateInput = el('input', {
     name: 'player__playbackrate',
     type: 'range',
-    value: `${player.playbackRate}`,
+    value: `${audioPlayer.playbackRate}`,
     step: '0.25',
     min: '0.75',
     max: '2',
     oninput: () => {
       const playbackRate = parseFloat(playerPlaybackRateInput.value)
-      player.playbackRate = playbackRate
+      audioPlayer.playbackRate = playbackRate
       playerPlaybackRateLabel.textContent = `${playbackRate}x`
       updatePlayerOptions(podcastId, { rate: playbackRate })
     }
@@ -49,24 +49,18 @@ export function patchPlayer(targetPlayer: HTMLAudioElement): void {
   const playerPlaybackRateLabel = el(
     'label',
     {
-      className: 'player__playbackrate-label',
       htmlFor: 'player__playbackrate'
     },
-    `${player.playbackRate}x`
+    `${audioPlayer.playbackRate}x`
   )
 
-  playerContainer.append(
-    player,
-    playerPlaybackRateInput,
-    playerPlaybackRateLabel
-  )
-  targetPlayer.replaceWith(playerContainer)
+  playerContainer.append(playerPlaybackRateInput, playerPlaybackRateLabel)
 
-  player.addEventListener('timeupdate', () => {
-    updatePlayerOptions(podcastId, { time: player.currentTime })
+  audioPlayer.addEventListener('timeupdate', () => {
+    updatePlayerOptions(podcastId, { time: audioPlayer.currentTime })
   })
 
-  player.addEventListener('volumechange', () => {
-    updatePlayerOptions(podcastId, { volume: player.volume })
+  audioPlayer.addEventListener('volumechange', () => {
+    updatePlayerOptions(podcastId, { volume: audioPlayer.volume })
   })
 }

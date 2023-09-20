@@ -1,5 +1,6 @@
 import { patchPlayer } from './player.js'
 import { patchPodcasts } from './podcast.js'
+
 import './style.scss'
 
 const banner = document.querySelector('.page__war')
@@ -7,9 +8,10 @@ if (banner) {
   banner.remove()
 }
 
-const player = document.querySelector<HTMLAudioElement>('.podcast__player')
-if (player) {
-  patchPlayer(player)
+const playerContainer =
+  document.querySelector<HTMLDivElement>('.podcast__player')
+if (playerContainer) {
+  patchPlayer(playerContainer)
 }
 
 const podcasts = Array.from(
